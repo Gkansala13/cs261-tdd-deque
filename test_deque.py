@@ -272,155 +272,155 @@ class TestDeque(unittest.TestCase):
     # Emptiness
     # """
 
-    # def test_empty(self):
-    #     """
-    #     A deque is initially empty.
-    #     """
-    #     d = Deque()
-    #     self.assertTrue(d.is_empty())
+    def test_empty(self):
+        """
+        A deque is initially empty.
+        """
+        d = Deque()
+        self.assertTrue(d.is_empty())
 
-    # def test_not_empty_left(self):
-    #     """
-    #     A deque with one left-enqueued value is not empty.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_left('fee')
-    #     self.assertFalse(d.is_empty())
+    def test_not_empty_left(self):
+        """
+        A deque with one left-enqueued value is not empty.
+        """
+        d = Deque()
+        d.enqueue_left('fee')
+        self.assertFalse(d.is_empty())
 
-    # def test_not_empty_right(self):
-    #     """
-    #     A deque with one right-enqueued value is not empty.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_right('fee')
-    #     self.assertFalse(d.is_empty())
+    def test_not_empty_right(self):
+        """
+        A deque with one right-enqueued value is not empty.
+        """
+        d = Deque()
+        d.enqueue_right('fee')
+        self.assertFalse(d.is_empty())
 
-    # def test_empty_after_dequeue_left(self):
-    #     """
-    #     A deque with one enqueued value is empty after left-dequeuing.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_left('fee')
-    #     _ = d.dequeue_left()
-    #     self.assertTrue(d.is_empty())
+    def test_empty_after_dequeue_left(self):
+        """
+        A deque with one enqueued value is empty after left-dequeuing.
+        """
+        d = Deque()
+        d.enqueue_left('fee')
+        _ = d.dequeue_left()
+        self.assertTrue(d.is_empty())
 
-    # def test_empty_after_dequeue_right(self):
-    #     """
-    #     A deque with one enqueued value is empty after right-dequeuing.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_left('fee')
-    #     _ = d.dequeue_right()
-    #     self.assertTrue(d.is_empty())
+    def test_empty_after_dequeue_right(self):
+        """
+        A deque with one enqueued value is empty after right-dequeuing.
+        """
+        d = Deque()
+        d.enqueue_left('fee')
+        _ = d.dequeue_right()
+        self.assertTrue(d.is_empty())
 
-    # def test_not_empty_multiple_left(self):
-    #     """
-    #     A deque with two enqueued values is not empty after dequeuing only one
-    #     from the left.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_left('fee')
-    #     d.enqueue_left('fi')
-    #     _ = d.dequeue_left()
-    #     self.assertFalse(d.is_empty())
+    def test_not_empty_multiple_left(self):
+        """
+        A deque with two enqueued values is not empty after dequeuing only one
+        from the left.
+        """
+        d = Deque()
+        d.enqueue_left('fee')
+        d.enqueue_left('fi')
+        _ = d.dequeue_left()
+        self.assertFalse(d.is_empty())
 
-    # def test_not_empty_multiple_right(self):
-    #     """
-    #     A deque with two enqueued values is not empty after dequeuing only one
-    #     from the right.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_left('fee')
-    #     d.enqueue_left('fi')
-    #     _ = d.dequeue_right()
-    #     self.assertFalse(d.is_empty())
+    def test_not_empty_multiple_right(self):
+        """
+        A deque with two enqueued values is not empty after dequeuing only one
+        from the right.
+        """
+        d = Deque()
+        d.enqueue_left('fee')
+        d.enqueue_left('fi')
+        _ = d.dequeue_right()
+        self.assertFalse(d.is_empty())
 
-    # def test_initial_dequeue(self):
-    #     """
-    #     Dequeuing from an empty deque raises ValueError.
-    #     """
-    #     d = Deque()
-    #     self.assertRaises(ValueError, d.dequeue_left)
-    #     self.assertRaises(ValueError, d.dequeue_right)
+    def test_initial_dequeue(self):
+        """
+        Dequeuing from an empty deque raises ValueError.
+        """
+        d = Deque()
+        self.assertRaises(ValueError, d.dequeue_left)
+        self.assertRaises(ValueError, d.dequeue_right)
 
     """
     Algorithmic complexity
     """
 
-    # def test_enqueue_left_vs_right_efficiency(self):
-    #     """
-    #     Enqueing a value is always O(1).
-    #     """
-    #     time_samples = []
-    #     for _ in range(0, 1000):
-    #         d = Deque()
-    #         start_time = time.time()
-    #         d.enqueue_left('fake')
-    #         end_time = time.time()
-    #         time_samples.append(end_time - start_time)
-    #     small_average_enqueue_time = sum(time_samples) / float(len(time_samples))
-    #     # Engueue Left
-    #     large_deque = Deque()
-    #     for _ in range(0, 1000000):
-    #         large_deque.enqueue_left('fake')
-    #     large_time_samples = []
-    #     for _ in range(0, 1000):
-    #         start_time = time.time()
-    #         large_deque.enqueue_left('fake')
-    #         end_time = time.time()
-    #         large_time_samples.append(end_time - start_time)
-    #     large_average_enqueue_time = sum(large_time_samples) / float(len(large_time_samples))
-    #     self.assertAlmostEqual(small_average_enqueue_time, large_average_enqueue_time, delta=small_average_enqueue_time)
-    #     # Enqueue Right
-    #     large_deque = Deque()
-    #     for _ in range(0, 1000000):
-    #         large_deque.enqueue_right('fake')
-    #     large_time_samples = []
-    #     for _ in range(0, 1000):
-    #         start_time = time.time()
-    #         large_deque.enqueue_right('fake')
-    #         end_time = time.time()
-    #         large_time_samples.append(end_time - start_time)
-    #     large_average_enqueue_time = sum(large_time_samples) / float(len(large_time_samples))
-    #     self.assertAlmostEqual(small_average_enqueue_time, large_average_enqueue_time, delta=small_average_enqueue_time)
+    def test_enqueue_left_vs_right_efficiency(self):
+        """
+        Enqueing a value is always O(1).
+        """
+        time_samples = []
+        for _ in range(0, 1000):
+            d = Deque()
+            start_time = time.time()
+            d.enqueue_left('fake')
+            end_time = time.time()
+            time_samples.append(end_time - start_time)
+        small_average_enqueue_time = sum(time_samples) / float(len(time_samples))
+        # Engueue Left
+        large_deque = Deque()
+        for _ in range(0, 1000000):
+            large_deque.enqueue_left('fake')
+        large_time_samples = []
+        for _ in range(0, 1000):
+            start_time = time.time()
+            large_deque.enqueue_left('fake')
+            end_time = time.time()
+            large_time_samples.append(end_time - start_time)
+        large_average_enqueue_time = sum(large_time_samples) / float(len(large_time_samples))
+        self.assertAlmostEqual(small_average_enqueue_time, large_average_enqueue_time, delta=small_average_enqueue_time)
+        # Enqueue Right
+        large_deque = Deque()
+        for _ in range(0, 1000000):
+            large_deque.enqueue_right('fake')
+        large_time_samples = []
+        for _ in range(0, 1000):
+            start_time = time.time()
+            large_deque.enqueue_right('fake')
+            end_time = time.time()
+            large_time_samples.append(end_time - start_time)
+        large_average_enqueue_time = sum(large_time_samples) / float(len(large_time_samples))
+        self.assertAlmostEqual(small_average_enqueue_time, large_average_enqueue_time, delta=small_average_enqueue_time)
 
-    # def test_dequeue_left_vs_right_efficiency(self):
-    #     """
-    #     Dequeuing a value is always O(1).
-    #     """
-    #     time_samples = []
-    #     for _ in range(0, 1000):
-    #         d = Deque()
-    #         d.enqueue_left('fake')
-    #         start_time = time.time()
-    #         d.dequeue_left()
-    #         end_time = time.time()
-    #         time_samples.append(end_time - start_time)
-    #     small_average_dequeue_time = sum(time_samples) / float(len(time_samples))
-    #     # Dequeue Left
-    #     large_queue = Deque()
-    #     for _ in range(0, 1000000):
-    #         large_queue.enqueue_left('fake')
-    #     large_time_samples = []
-    #     for _ in range(0, 1000):
-    #         start_time = time.time()
-    #         large_queue.dequeue_left()
-    #         end_time = time.time()
-    #         large_time_samples.append(end_time - start_time)
-    #     large_average_dequeue_time = sum(large_time_samples) / float(len(large_time_samples))
-    #     self.assertAlmostEqual(small_average_dequeue_time, large_average_dequeue_time, delta=small_average_dequeue_time)
-    #     # Dequeue Right
-    #     large_queue = Deque()
-    #     for _ in range(0, 1000000):
-    #         large_queue.enqueue_left('fake')
-    #     large_time_samples = []
-    #     for _ in range(0, 1000):
-    #         start_time = time.time()
-    #         large_queue.dequeue_right()
-    #         end_time = time.time()
-    #         large_time_samples.append(end_time - start_time)
-    #     large_average_dequeue_time = sum(large_time_samples) / float(len(large_time_samples))
-    #     self.assertAlmostEqual(small_average_dequeue_time, large_average_dequeue_time, delta=small_average_dequeue_time)
+    def test_dequeue_left_vs_right_efficiency(self):
+        """
+        Dequeuing a value is always O(1).
+        """
+        time_samples = []
+        for _ in range(0, 1000):
+            d = Deque()
+            d.enqueue_left('fake')
+            start_time = time.time()
+            d.dequeue_left()
+            end_time = time.time()
+            time_samples.append(end_time - start_time)
+        small_average_dequeue_time = sum(time_samples) / float(len(time_samples))
+        # Dequeue Left
+        large_queue = Deque()
+        for _ in range(0, 1000000):
+            large_queue.enqueue_left('fake')
+        large_time_samples = []
+        for _ in range(0, 1000):
+            start_time = time.time()
+            large_queue.dequeue_left()
+            end_time = time.time()
+            large_time_samples.append(end_time - start_time)
+        large_average_dequeue_time = sum(large_time_samples) / float(len(large_time_samples))
+        self.assertAlmostEqual(small_average_dequeue_time, large_average_dequeue_time, delta=small_average_dequeue_time)
+        # Dequeue Right
+        large_queue = Deque()
+        for _ in range(0, 1000000):
+            large_queue.enqueue_left('fake')
+        large_time_samples = []
+        for _ in range(0, 1000):
+            start_time = time.time()
+            large_queue.dequeue_right()
+            end_time = time.time()
+            large_time_samples.append(end_time - start_time)
+        large_average_dequeue_time = sum(large_time_samples) / float(len(large_time_samples))
+        self.assertAlmostEqual(small_average_dequeue_time, large_average_dequeue_time, delta=small_average_dequeue_time)
 
 
 def fake_value():
