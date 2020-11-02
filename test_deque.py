@@ -39,148 +39,148 @@ class TestDeque(unittest.TestCase):
     # Hint: Once test_has_doubly_linked_list_internal passes, uncomment the import at
     #       the top of this file.
 
-    # def test_enqueue_left_one_internal(self):
-    #     """
-    #     Enqueueing a 'left' value adds it to the beginning of the internal dllist.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_left('fee')
-    #     self.assertEqual('fee', d.data.first.value)
+    def test_enqueue_left_one_internal(self):
+        """
+        Enqueueing a 'left' value adds it to the beginning of the internal dllist.
+        """
+        d = Deque()
+        d.enqueue_left('fee')
+        self.assertEqual('fee', d.data.first.value)
 
-    # def test_enqueue_left_two_internal(self):
-    #     """
-    #     Enqueueing two values to the left results in the first enqueued value
-    #     being the second one in the list, and the second value being the first
-    #     one in the list.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_left('fee')
-    #     d.enqueue_left('fi')
-    #     self.assertEqual('fee', d.data.last.value)
-    #     self.assertEqual('fi', d.data.first.value)
+    def test_enqueue_left_two_internal(self):
+        """
+        Enqueueing two values to the left results in the first enqueued value
+        being the second one in the list, and the second value being the first
+        one in the list.
+        """
+        d = Deque()
+        d.enqueue_left('fee')
+        d.enqueue_left('fi')
+        self.assertEqual('fee', d.data.last.value)
+        self.assertEqual('fi', d.data.first.value)
 
-    # def test_enqueue_left_three_internal(self):
-    #     """
-    #     Enqueueing three values results in the first enqueued value being the
-    #     last one in the list, and the third value being the first one in the list.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_left('fee')
-    #     d.enqueue_left('fi')
-    #     d.enqueue_left('fo')
-    #     self.assertEqual('fee', d.data.last.value)
-    #     self.assertEqual('fo', d.data.first.value)
+    def test_enqueue_left_three_internal(self):
+        """
+        Enqueueing three values results in the first enqueued value being the
+        last one in the list, and the third value being the first one in the list.
+        """
+        d = Deque()
+        d.enqueue_left('fee')
+        d.enqueue_left('fi')
+        d.enqueue_left('fo')
+        self.assertEqual('fee', d.data.last.value)
+        self.assertEqual('fo', d.data.first.value)
 
-    # def test_enqueue_right_one_internal(self):
-    #     """
-    #     Enqueueing a 'right' value adds it to the beginning of the internal dllist.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_right('fee')
-    #     self.assertEqual('fee', d.data.first.value)
+    def test_enqueue_right_one_internal(self):
+        """
+        Enqueueing a 'right' value adds it to the beginning of the internal dllist.
+        """
+        d = Deque()
+        d.enqueue_right('fee')
+        self.assertEqual('fee', d.data.first.value)
 
-    # def test_enqueue_right_two_internal(self):
-    #     """
-    #     Enqueueing two values to the right results in the first enqueued value
-    #     being the first one in the list, and the second value being the last
-    #     one in the list.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_right('fee')
-    #     d.enqueue_right('fi')
-    #     self.assertEqual('fee', d.data.first.value)
-    #     self.assertEqual('fi', d.data.last.value)
+    def test_enqueue_right_two_internal(self):
+        """
+        Enqueueing two values to the right results in the first enqueued value
+        being the first one in the list, and the second value being the last
+        one in the list.
+        """
+        d = Deque()
+        d.enqueue_right('fee')
+        d.enqueue_right('fi')
+        self.assertEqual('fee', d.data.first.value)
+        self.assertEqual('fi', d.data.last.value)
 
-    # def test_enqueue_right_three_internal(self):
-    #     """
-    #     Enqueueing three values results in the first enqueued value being the
-    #     first one in the list, and the third value being the last one in the list.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_right('fee')
-    #     d.enqueue_right('fi')
-    #     d.enqueue_right('fo')
-    #     self.assertEqual('fee', d.data.first.value)
-    #     self.assertEqual('fo', d.data.last.value)
+    def test_enqueue_right_three_internal(self):
+        """
+        Enqueueing three values results in the first enqueued value being the
+        first one in the list, and the third value being the last one in the list.
+        """
+        d = Deque()
+        d.enqueue_right('fee')
+        d.enqueue_right('fi')
+        d.enqueue_right('fo')
+        self.assertEqual('fee', d.data.first.value)
+        self.assertEqual('fo', d.data.last.value)
 
-    # def test_dequeue_left_one(self):
-    #     """
-    #     Dequeuing from the left of a single-element deque returns the single value.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_left('fee')
-    #     self.assertEqual('fee', d.dequeue_left())
-    #     d.enqueue_right('fee')
-    #     self.assertEqual('fee', d.dequeue_left())
+    def test_dequeue_left_one(self):
+        """
+        Dequeuing from the left of a single-element deque returns the single value.
+        """
+        d = Deque()
+        d.enqueue_left('fee')
+        self.assertEqual('fee', d.dequeue_left())
+        d.enqueue_right('fee')
+        self.assertEqual('fee', d.dequeue_left())
 
-    # def test_dequeue_left_one_internal(self):
-    #     """
-    #     Dequeuing from the left of a single-element deque removes it from the
-    #     internal dllist.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_left('fee')
-    #     self.assertEqual(1, d.data.size)
-    #     _ = d.dequeue_left()
-    #     self.assertEqual(0, d.data.size)
+    def test_dequeue_left_one_internal(self):
+        """
+        Dequeuing from the left of a single-element deque removes it from the
+        internal dllist.
+        """
+        d = Deque()
+        d.enqueue_left('fee')
+        self.assertEqual(1, d.data.size)
+        _ = d.dequeue_left()
+        self.assertEqual(0, d.data.size)
 
-    # def test_dequeue_left_two(self):
-    #     """
-    #     Dequeuing from the left of a two-element deque returns the last
-    #     left-enqueued value.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_left('fee')
-    #     d.enqueue_left('fi')
-    #     self.assertEqual('fi', d.dequeue_left())
+    def test_dequeue_left_two(self):
+        """
+        Dequeuing from the left of a two-element deque returns the last
+        left-enqueued value.
+        """
+        d = Deque()
+        d.enqueue_left('fee')
+        d.enqueue_left('fi')
+        self.assertEqual('fi', d.dequeue_left())
 
-    # def test_dequeue_left_two_internal(self):
-    #     """
-    #     Dequeuing from the left of a two-element deque removes the last
-    #     left-enqueued value from the dllist.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_left('fee')
-    #     d.enqueue_left('fi')
-    #     _ = d.dequeue_left()
-    #     self.assertEqual('fee', d.data.first.value)
+    def test_dequeue_left_two_internal(self):
+        """
+        Dequeuing from the left of a two-element deque removes the last
+        left-enqueued value from the dllist.
+        """
+        d = Deque()
+        d.enqueue_left('fee')
+        d.enqueue_left('fi')
+        _ = d.dequeue_left()
+        self.assertEqual('fee', d.data.first.value)
 
-    # def test_dequeue_left_three(self):
-    #     """
-    #     Dequeuing from the left of a three-element deque returns each enqueued
-    #     value in FIFO order.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_left('fee')
-    #     d.enqueue_left('fi')
-    #     d.enqueue_left('fo')
-    #     self.assertEqual('fo', d.dequeue_left())
-    #     self.assertEqual('fi', d.dequeue_left())
-    #     self.assertEqual('fee', d.dequeue_left())
+    def test_dequeue_left_three(self):
+        """
+        Dequeuing from the left of a three-element deque returns each enqueued
+        value in FIFO order.
+        """
+        d = Deque()
+        d.enqueue_left('fee')
+        d.enqueue_left('fi')
+        d.enqueue_left('fo')
+        self.assertEqual('fo', d.dequeue_left())
+        self.assertEqual('fi', d.dequeue_left())
+        self.assertEqual('fee', d.dequeue_left())
 
-    # def test_dequeue_left_three_internal(self):
-    #     """
-    #     Dequeuing from the left of a three-element deque removes each dequeued
-    #     value from the internal dllist, in FIFO order.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_left('fee')
-    #     d.enqueue_left('fi')
-    #     d.enqueue_left('fo')
-    #     _ = d.dequeue_left()
-    #     self.assertEqual('fi', d.data.first.value)
-    #     _ = d.dequeue_left()
-    #     self.assertEqual('fee', d.data.first.value)
+    def test_dequeue_left_three_internal(self):
+        """
+        Dequeuing from the left of a three-element deque removes each dequeued
+        value from the internal dllist, in FIFO order.
+        """
+        d = Deque()
+        d.enqueue_left('fee')
+        d.enqueue_left('fi')
+        d.enqueue_left('fo')
+        _ = d.dequeue_left()
+        self.assertEqual('fi', d.data.first.value)
+        _ = d.dequeue_left()
+        self.assertEqual('fee', d.data.first.value)
 
-    # def test_dequeue_right_one(self):
-    #     """
-    #     Dequeuing from the right of a single-element deque returns the single value.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_right('fee')
-    #     self.assertEqual('fee', d.dequeue_right())
-    #     d.enqueue_left('fee')
-    #     self.assertEqual('fee', d.dequeue_right())
+    def test_dequeue_right_one(self):
+        """
+        Dequeuing from the right of a single-element deque returns the single value.
+        """
+        d = Deque()
+        d.enqueue_right('fee')
+        self.assertEqual('fee', d.dequeue_right())
+        d.enqueue_left('fee')
+        self.assertEqual('fee', d.dequeue_right())
 
     # def test_dequeue_right_one_internal(self):
     #     """

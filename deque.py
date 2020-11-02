@@ -9,4 +9,12 @@ class Deque:
 
     def __init__(self):
         self.data=dllist([])
-   
+
+    def enqueue_left(self, value):
+       return self.data.appendleft(value)
+
+    def enqueue_right(self, value):
+        return self.data.appendright(value)
+    
+    def dequeue_left(self):
+        return self.data.popleft()
