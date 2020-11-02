@@ -182,95 +182,95 @@ class TestDeque(unittest.TestCase):
         d.enqueue_left('fee')
         self.assertEqual('fee', d.dequeue_right())
 
-    # def test_dequeue_right_one_internal(self):
-    #     """
-    #     Dequeuing from the right of a single-element deque removes it from the
-    #     internal dllist.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_right('fee')
-    #     self.assertEqual(1, d.data.size)
-    #     _ = d.dequeue_right()
-    #     self.assertEqual(0, d.data.size)
+    def test_dequeue_right_one_internal(self):
+        """
+        Dequeuing from the right of a single-element deque removes it from the
+        internal dllist.
+        """
+        d = Deque()
+        d.enqueue_right('fee')
+        self.assertEqual(1, d.data.size)
+        _ = d.dequeue_right()
+        self.assertEqual(0, d.data.size)
 
-    # def test_dequeue_right_two(self):
-    #     """
-    #     Dequeuing from the right of a two-element deque returns the last
-    #     right-enqueued value.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_right('fee')
-    #     d.enqueue_right('fi')
-    #     self.assertEqual('fi', d.dequeue_right())
+    def test_dequeue_right_two(self):
+        """
+        Dequeuing from the right of a two-element deque returns the last
+        right-enqueued value.
+        """
+        d = Deque()
+        d.enqueue_right('fee')
+        d.enqueue_right('fi')
+        self.assertEqual('fi', d.dequeue_right())
 
-    # def test_dequeue_right_two_internal(self):
-    #     """
-    #     Dequeuing from the right of a two-element deque removes the last
-    #     right-enqueued value from the dllist.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_right('fee')
-    #     d.enqueue_right('fi')
-    #     _ = d.dequeue_right()
-    #     self.assertEqual('fee', d.data.first.value)
+    def test_dequeue_right_two_internal(self):
+        """
+        Dequeuing from the right of a two-element deque removes the last
+        right-enqueued value from the dllist.
+        """
+        d = Deque()
+        d.enqueue_right('fee')
+        d.enqueue_right('fi')
+        _ = d.dequeue_right()
+        self.assertEqual('fee', d.data.first.value)
 
-    # def test_dequeue_right_three(self):
-    #     """
-    #     Dequeuing from the right of a three-element deque returns each enqueued
-    #     value in LIFO order.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_right('fee')
-    #     d.enqueue_right('fi')
-    #     d.enqueue_right('fo')
-    #     self.assertEqual('fo', d.dequeue_right())
-    #     self.assertEqual('fi', d.dequeue_right())
-    #     self.assertEqual('fee', d.dequeue_right())
+    def test_dequeue_right_three(self):
+        """
+        Dequeuing from the right of a three-element deque returns each enqueued
+        value in LIFO order.
+        """
+        d = Deque()
+        d.enqueue_right('fee')
+        d.enqueue_right('fi')
+        d.enqueue_right('fo')
+        self.assertEqual('fo', d.dequeue_right())
+        self.assertEqual('fi', d.dequeue_right())
+        self.assertEqual('fee', d.dequeue_right())
 
-    # def test_dequeue_right_three_internal(self):
-    #     """
-    #     Dequeuing from the right of a three-element deque removes each dequeued
-    #     value from the internal dllist, in LIFO order.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_right('fee')
-    #     d.enqueue_right('fi')
-    #     d.enqueue_right('fo')
-    #     _ = d.dequeue_right()
-    #     self.assertEqual('fee', d.data.first.value)
-    #     _ = d.dequeue_right()
-    #     self.assertEqual('fee', d.data.first.value)
+    def test_dequeue_right_three_internal(self):
+        """
+        Dequeuing from the right of a three-element deque removes each dequeued
+        value from the internal dllist, in LIFO order.
+        """
+        d = Deque()
+        d.enqueue_right('fee')
+        d.enqueue_right('fi')
+        d.enqueue_right('fo')
+        _ = d.dequeue_right()
+        self.assertEqual('fee', d.data.first.value)
+        _ = d.dequeue_right()
+        self.assertEqual('fee', d.data.first.value)
 
-    # def test_enqueue_left_dequeue_right(self):
-    #     """
-    #     Dequeuing from the right of a three-element deque returns each
-    #     left-enqueued value in FIFO order.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_left('fee')
-    #     d.enqueue_left('fi')
-    #     d.enqueue_left('fo')
-    #     self.assertEqual('fee', d.dequeue_right())
-    #     self.assertEqual('fi', d.dequeue_right())
-    #     self.assertEqual('fo', d.dequeue_right())
+    def test_enqueue_left_dequeue_right(self):
+        """
+        Dequeuing from the right of a three-element deque returns each
+        left-enqueued value in FIFO order.
+        """
+        d = Deque()
+        d.enqueue_left('fee')
+        d.enqueue_left('fi')
+        d.enqueue_left('fo')
+        self.assertEqual('fee', d.dequeue_right())
+        self.assertEqual('fi', d.dequeue_right())
+        self.assertEqual('fo', d.dequeue_right())
 
-    # def test_enqueue_left_dequeue_right(self):
-    #     """
-    #     Dequeuing from the right of a three-element deque returns each
-    #     left-enqueued value in FIFO order.
-    #     """
-    #     d = Deque()
-    #     d.enqueue_right('fee')
-    #     d.enqueue_right('fi')
-    #     d.enqueue_right('fo')
-    #     self.assertEqual('fee', d.dequeue_left())
-    #     self.assertEqual('fi', d.dequeue_left())
-    #     self.assertEqual('fo', d.dequeue_left())
+    def test_enqueue_left_dequeue_right(self):
+        """
+        Dequeuing from the right of a three-element deque returns each
+        left-enqueued value in FIFO order.
+        """
+        d = Deque()
+        d.enqueue_right('fee')
+        d.enqueue_right('fi')
+        d.enqueue_right('fo')
+        self.assertEqual('fee', d.dequeue_left())
+        self.assertEqual('fi', d.dequeue_left())
+        self.assertEqual('fo', d.dequeue_left())
 
 
-    """
-    Emptiness
-    """
+    # """
+    # Emptiness
+    # """
 
     # def test_empty(self):
     #     """

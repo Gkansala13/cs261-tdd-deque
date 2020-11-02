@@ -18,3 +18,8 @@ class Deque:
     
     def dequeue_left(self):
         return self.data.popleft()
+
+    def dequeue_right(self):
+        return self.data.popright()
+
+   
